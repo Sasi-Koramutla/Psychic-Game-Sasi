@@ -8,52 +8,62 @@
 </head>
 
 <body>
-    <h1>Psychic Game - Guess letters from A to Z</h1>
+    <h1>Psychic Game - Guess letters from A to Z (Uppercase)</h1>
     <h3>You have 5 chances until you Win or Lose</h3>
 
  <p id=userGuess>User Guess:</p>
-
- <p id=computerGuess>Computer Guess:</p>
 
  <p id=W>Wins:</p>
 
  <p id=L>Losses:</p>
 
- <p id=T>Ties:</p>
+ <p id=G>Guesses left until you Win or Lose:</p>
 
   <script type="text/javascript">
 
 var computerChoices = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
 var W=0;
 var L=0;
+var gCount=5;
 
 // This function is run whenever the user presses a key.
 document.onkeyup = function(event) {
 
   // Determines which key was pressed.
   var userGuess = event.key;
-  if(["A", "B", "C"].includes(userGuess))
+  if(["A", "B", "C", "D", "E", "F", "G", "H", "I"].includes(userGuess))
   {
   document.getElementById("userGuess").innerHTML = "User Guess is: " + userGuess;
   
   // Randomly chooses a choice from the options array. This is the Computer's guess.
   var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-  document.getElementById("computerGuess").innerHTML = "Computer Guess is: " + computerGuess;
+ // document.getElementById("computerGuess").innerHTML = "Computer Guess is: " + computerGuess;
 
 for (let index = 0; index < 5; index++) {
-      if (arr[index] === computerGuess+userGuess)
+  document.getElementById("W").innerHTML = "Wins: " + W;
+  document.getElementById("L").innerHTML = "Losses: " + L;
+  document.getElementById("G").innerHTML = "Guesses left until you Win or Lose: " + gCount;
+      if (computerGuess === userGuess)
       {
-        T+=countT[index];
-        W+=countW[index];
-        L+=countL[index];
+             W+=1;
+             gCount = 5;
+             break;
+             
       }
+      gCount--;
+
+
+
+      if (gCount === 0)
+       {
+           L+=1;
+           gCount = 5;
+       }
       }
   
 
 //
-  document.getElementById("W").innerHTML = "Wins: " + W;
-  document.getElementById("L").innerHTML = "Losses: " + L;
-  document.getElementById("T").innerHTML = "Ties: " + T;
+
   }
   // Alerts the key the user pressed (userGuess).
  //"User guess: " + userGuess
