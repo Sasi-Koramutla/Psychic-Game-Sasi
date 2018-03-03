@@ -42,9 +42,8 @@ document.onkeyup = function(event) {
   
   // Randomly chooses a choice from the options array. This is the Computer's guess.
   var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-  document.getElementById("computerGuess").innerHTML = "Computer Guess is: " + computerGuess;
-
-for (let index = 0; index < 5; index++) {
+  
+  for (let index = 0; index < 5; index++) {
   document.getElementById("W").innerHTML = "Wins: " + W;
   document.getElementById("L").innerHTML = "Losses: " + L;
   document.getElementById("G").innerHTML = "Guesses left until you Win or Lose: " + gCount;
