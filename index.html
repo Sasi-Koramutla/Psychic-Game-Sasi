@@ -8,12 +8,19 @@
 </head>
 
 <body>
-    <h1>Psychic Game - Guess letters from A to Z (Uppercase)</h1>
-    <h3>You have 5 chances until you Win or Lose</h3>
+    
+        <div class="jumbotron">
+                <h1 class="text-center">
+                  <strong>Psychic Game - Guess letters from A to Z (Uppercase)</strong>
+                </h1>
+                <h3>You have 5 chances until you Win or Lose</h3>
+                <hr>
+        </div>
+  
 
  <p id=userGuess>User Guess:</p>
 
- <p id=W>Wins:</p>
+  <p id=W>Wins:</p>
 
  <p id=L>Losses:</p>
 
@@ -37,7 +44,7 @@ document.onkeyup = function(event) {
   
   // Randomly chooses a choice from the options array. This is the Computer's guess.
   var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
- // document.getElementById("computerGuess").innerHTML = "Computer Guess is: " + computerGuess;
+  document.getElementById("computerGuess").innerHTML = "Computer Guess is: " + computerGuess;
 
 for (let index = 0; index < 5; index++) {
   document.getElementById("W").innerHTML = "Wins: " + W;
